@@ -1,4 +1,4 @@
-package com.example.financetracker.dto.response;
+package com.example.financetracker.dtos.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

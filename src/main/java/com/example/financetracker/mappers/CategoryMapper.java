@@ -16,7 +16,7 @@ public class CategoryMapper {
                 build();
     }
 
-    public CategoryResponse toRespone(CategoryResponse respone) {
+    public static CategoryResponse toRespone(CategoryResponse respone) {
         return CategoryResponse.builder().
                 id(respone.getId()).
                 name(respone.getName()).
