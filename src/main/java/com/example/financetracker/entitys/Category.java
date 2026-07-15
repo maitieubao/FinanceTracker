@@ -1,6 +1,6 @@
-package com.example.financetracker.entity;
+package com.example.financetracker.entitys;
 
-import com.example.financetracker.Enum.TransactionType;
+import com.example.financetracker.constants.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,7 +32,7 @@ public class Category {
 
     @CreationTimestamp
     @Column(name = "create_at", updatable = false)
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactions = new ArrayList<>();

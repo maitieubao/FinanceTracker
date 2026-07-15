@@ -1,11 +1,10 @@
-package com.example.financetracker.mapper;
+package com.example.financetracker.mappers;
 
-import com.example.financetracker.dto.request.TransactionRequest;
-import com.example.financetracker.dto.response.TransactionResponse;
-import com.example.financetracker.entity.Category;
-import com.example.financetracker.entity.Transaction;
+import com.example.financetracker.dtos.request.TransactionRequest;
+import com.example.financetracker.dtos.response.TransactionResponse;
+import com.example.financetracker.entitys.Category;
+import com.example.financetracker.entitys.Transaction;
 import com.example.financetracker.repository.CategoryRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

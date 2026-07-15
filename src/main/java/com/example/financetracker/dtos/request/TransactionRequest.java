@@ -1,6 +1,6 @@
-package com.example.financetracker.dto.request;
+package com.example.financetracker.dtos.request;
 
-import com.example.financetracker.Enum.TransactionType;
+import com.example.financetracker.constants.TransactionType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

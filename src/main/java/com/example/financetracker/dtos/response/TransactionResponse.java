@@ -1,6 +1,6 @@
-package com.example.financetracker.dto.response;
+package com.example.financetracker.dtos.response;
 
-import com.example.financetracker.Enum.TransactionType;
+import com.example.financetracker.constants.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

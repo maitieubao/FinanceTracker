@@ -1,7 +1,7 @@
 package com.example.financetracker.service;
 
-import com.example.financetracker.dto.request.CategoryRequest;
-import com.example.financetracker.dto.response.CategoryResponse;
+import com.example.financetracker.dtos.request.CategoryRequest;
+import com.example.financetracker.dtos.response.CategoryResponse;
 
 import java.util.List;
 

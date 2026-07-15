@@ -1,6 +1,5 @@
 package com.example.financetracker.dtos.response;
 
-import com.example.financetracker.constants.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +11,8 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoryResponse {
-    private Long id;
-    private String name;
-    private TransactionType type;
-    private LocalDateTime createdAt;
+public class ErrorResponse {
+    private LocalDateTime timestamp;
+    private int status;
+    private String message;
 }

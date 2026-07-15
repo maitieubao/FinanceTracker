@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SumaryResponse {
+public class SummaryResponse {
     private BigDecimal totalIncome;
     private BigDecimal totalExpense;
     private BigDecimal balance;

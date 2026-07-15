@@ -1,6 +1,6 @@
-package com.example.financetracker.entity;
+package com.example.financetracker.entitys;
 
-import com.example.financetracker.Enum.TransactionType;
+import com.example.financetracker.constants.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,7 +35,7 @@ public class Transaction {
     @Column(name = "transaction_date", nullable = false)
     private LocalDate transactionDate;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 

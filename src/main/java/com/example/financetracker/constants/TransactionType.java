@@ -1,4 +1,4 @@
-package com.example.financetracker.Enum;
+package com.example.financetracker.constants;
 
 public enum TransactionType  {
     INCOME,

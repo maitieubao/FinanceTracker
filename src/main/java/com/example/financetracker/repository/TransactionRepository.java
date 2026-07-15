@@ -1,8 +1,7 @@
 package com.example.financetracker.repository;
 
-import com.example.financetracker.entity.Transaction;
-import com.example.financetracker.Enum.TransactionType;
-import org.springframework.beans.factory.aot.AotServices;
+import com.example.financetracker.entitys.Transaction;
+import com.example.financetracker.constants.TransactionType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,10 +21,10 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     @Query("""
         SELECT t FROM Transaction t WHERE
-        (:type is NULL or t.type = :type) AND
-        (:categoryId is NULL or t.categoryId = :categoryId) AND
-        (:fromDate is NULL or t.fromDate >= :fromDate) AND
-        (:toDate is NULL or r.toDate <= :toDate)
+        (:type is null or t.type = :type) AND
+        (:categoryId is null or t.category.id = :categoryId) AND
+        (:fromDate is null or t.transactionDate >= :fromDate) AND
+        (:toDate is null or t.transactionDate <= :toDate)
     """)
     List<Transaction> findWithFilter(
             @Param("type") TransactionType type,
