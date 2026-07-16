@@ -1,8 +1,8 @@
 package com.example.financetracker.mappers;
 
 
-import com.example.financetracker.dtos.request.CategoryRequest;
-import com.example.financetracker.dtos.response.CategoryResponse;
+import com.example.financetracker.dtos.category.CategoryRequest;
+import com.example.financetracker.dtos.category.CategoryResponse;
 import com.example.financetracker.entitys.Category;
 import org.springframework.stereotype.Component;
 

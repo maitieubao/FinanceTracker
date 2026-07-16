@@ -1,16 +1,18 @@
-package com.example.financetracker.service.impl;
+package com.example.financetracker.services.impl;
 
 import com.example.financetracker.constants.TransactionType;
-import com.example.financetracker.dtos.request.TransactionRequest;
+import com.example.financetracker.dtos.transaction.TransactionRequest;
 import com.example.financetracker.dtos.response.SummaryResponse;
-import com.example.financetracker.dtos.response.TransactionResponse;
+import com.example.financetracker.dtos.transaction.TransactionResponse;
 import com.example.financetracker.entitys.Transaction;
 import com.example.financetracker.mappers.TransactionMapper;
-import com.example.financetracker.repository.TransactionRepository;
-import com.example.financetracker.service.TransactionService;
+import com.example.financetracker.repositories.TransactionRepository;
+import com.example.financetracker.services.TransactionService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -35,14 +37,18 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public List<TransactionResponse> getAllTransactions(String type, Long categoryId, LocalDate fromDate, LocalDate toDate) {
+    public Page<TransactionResponse> getAllTransactions(
+            String type,
+            Long categoryId,
+            LocalDate fromDate,
+            LocalDate toDate,
+            Pageable pageable
+    ) {
         TransactionType transactionType = type != null ? TransactionType.valueOf(type) : null;
 
-        List<Transaction> transactions = transactionRepository.findWithFilter(transactionType, categoryId,fromDate,toDate);
+        Page<Transaction> transactions = transactionRepository.findWithFilter(transactionType, categoryId, fromDate, toDate, pageable);
 
-        return transactions.stream()
-                .map(transactionMapper::toResponse)
-                .collect(Collectors.toList());
+        return transactions.map(transactionMapper::toResponse);
     }
 
     @Override
@@ -68,7 +74,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public void deleteTransaction(Long id) {
-        if(!transactionRepository.existsById(id)) {
+        if (!transactionRepository.existsById(id)) {
             throw new EntityNotFoundException("Transaction with id " + id + " was not found");
         }
         transactionRepository.deleteById(id);

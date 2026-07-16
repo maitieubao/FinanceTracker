@@ -1,7 +1,9 @@
-package com.example.financetracker.repository;
+package com.example.financetracker.repositories;
 
 import com.example.financetracker.entitys.Transaction;
 import com.example.financetracker.constants.TransactionType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,11 +28,12 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
         (:fromDate is null or t.transactionDate >= :fromDate) AND
         (:toDate is null or t.transactionDate <= :toDate)
     """)
-    List<Transaction> findWithFilter(
+    Page<Transaction> findWithFilter(
             @Param("type") TransactionType type,
             @Param("categoryId") Long categoryId,
             @Param("fromDate") LocalDate fromDate,
-            @Param("toDate") LocalDate toDate
+            @Param("toDate") LocalDate toDate,
+            @Param("pageable") Pageable pageable
     );
 }
 

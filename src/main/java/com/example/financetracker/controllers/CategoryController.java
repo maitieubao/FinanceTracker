@@ -1,9 +1,9 @@
 package com.example.financetracker.controllers;
 
 
-import com.example.financetracker.dtos.request.CategoryRequest;
-import com.example.financetracker.dtos.response.CategoryResponse;
-import com.example.financetracker.service.CategoryService;
+import com.example.financetracker.dtos.category.CategoryRequest;
+import com.example.financetracker.dtos.category.CategoryResponse;
+import com.example.financetracker.services.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

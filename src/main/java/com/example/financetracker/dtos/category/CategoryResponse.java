@@ -1,4 +1,4 @@
-package com.example.financetracker.dtos.response;
+package com.example.financetracker.dtos.category;
 
 import com.example.financetracker.constants.TransactionType;
 import lombok.AllArgsConstructor;

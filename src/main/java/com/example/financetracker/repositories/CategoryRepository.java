@@ -1,4 +1,4 @@
-package com.example.financetracker.repository;
+package com.example.financetracker.repositories;
 
 import com.example.financetracker.entitys.Category;
 import org.springframework.data.jpa.repository.JpaRepository;

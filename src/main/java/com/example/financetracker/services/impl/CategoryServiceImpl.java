@@ -1,11 +1,11 @@
-package com.example.financetracker.service.impl;
+package com.example.financetracker.services.impl;
 
-import com.example.financetracker.dtos.request.CategoryRequest;
-import com.example.financetracker.dtos.response.CategoryResponse;
+import com.example.financetracker.dtos.category.CategoryRequest;
+import com.example.financetracker.dtos.category.CategoryResponse;
 import com.example.financetracker.entitys.Category;
 import com.example.financetracker.mappers.CategoryMapper;
-import com.example.financetracker.repository.CategoryRepository;
-import com.example.financetracker.service.CategoryService;
+import com.example.financetracker.repositories.CategoryRepository;
+import com.example.financetracker.services.CategoryService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

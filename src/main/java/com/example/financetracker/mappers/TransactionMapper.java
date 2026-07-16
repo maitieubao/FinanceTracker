@@ -1,10 +1,10 @@
 package com.example.financetracker.mappers;
 
-import com.example.financetracker.dtos.request.TransactionRequest;
-import com.example.financetracker.dtos.response.TransactionResponse;
+import com.example.financetracker.dtos.transaction.TransactionRequest;
+import com.example.financetracker.dtos.transaction.TransactionResponse;
 import com.example.financetracker.entitys.Category;
 import com.example.financetracker.entitys.Transaction;
-import com.example.financetracker.repository.CategoryRepository;
+import com.example.financetracker.repositories.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
