@@ -1,6 +1,5 @@
 package com.example.financetracker.controllers;
 
-
 import com.example.financetracker.dtos.category.CategoryRequest;
 import com.example.financetracker.dtos.category.CategoryResponse;
 import com.example.financetracker.services.CategoryService;
@@ -14,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/categories")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
