@@ -21,12 +21,16 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     List<Transaction> findByTransactionDateBetween(LocalDate fromDate, LocalDate toDate);
 
+    List<Transaction> findByTransactionDateGreaterThanEqual(LocalDate fromDate);
+
+    List<Transaction> findByTransactionDateLessThanEqual(LocalDate toDate);
+
     @Query("""
         SELECT t FROM Transaction t WHERE
         (:type is null or t.type = :type) AND
         (:categoryId is null or t.category.id = :categoryId) AND
-        (:fromDate is null or t.transactionDate >= :fromDate) AND
-        (:toDate is null or t.transactionDate <= :toDate)
+        (cast(:fromDate as date) is null or t.transactionDate >= :fromDate) AND
+        (cast(:toDate as date) is null or t.transactionDate <= :toDate)
     """)
     Page<Transaction> findWithFilter(
             @Param("type") TransactionType type,

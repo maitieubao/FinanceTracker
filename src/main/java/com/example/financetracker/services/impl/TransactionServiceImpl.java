@@ -44,7 +44,7 @@ public class TransactionServiceImpl implements TransactionService {
             LocalDate toDate,
             Pageable pageable
     ) {
-        TransactionType transactionType = type != null ? TransactionType.valueOf(type) : null;
+        TransactionType transactionType = (type != null && !type.isBlank()) ? TransactionType.valueOf(type.toUpperCase()) : null;
 
         Page<Transaction> transactions = transactionRepository.findWithFilter(transactionType, categoryId, fromDate, toDate, pageable);
 
@@ -81,15 +81,24 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public SummaryResponse getSummary() {
-        List<Transaction> allTransactions = transactionRepository.findAll();
+    public SummaryResponse getSummary(LocalDate fromDate, LocalDate toDate) {
+        List<Transaction> transactions;
+        if (fromDate != null && toDate != null) {
+            transactions = transactionRepository.findByTransactionDateBetween(fromDate, toDate);
+        } else if (fromDate != null) {
+            transactions = transactionRepository.findByTransactionDateGreaterThanEqual(fromDate);
+        } else if (toDate != null) {
+            transactions = transactionRepository.findByTransactionDateLessThanEqual(toDate);
+        } else {
+            transactions = transactionRepository.findAll();
+        }
 
-        BigDecimal totalIncome = allTransactions.stream()
+        BigDecimal totalIncome = transactions.stream()
                 .filter(t -> t.getType() == TransactionType.INCOME)
                 .map(Transaction::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        BigDecimal totalExpense = allTransactions.stream()
+        BigDecimal totalExpense = transactions.stream()
                 .filter(t -> t.getType() == TransactionType.EXPENSE)
                 .map(Transaction::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

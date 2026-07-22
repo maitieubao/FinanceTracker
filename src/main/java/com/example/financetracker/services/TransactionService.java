@@ -16,5 +16,5 @@ public interface TransactionService {
     TransactionResponse getTransactionById(Long id);
     TransactionResponse updateTransaction(Long id, TransactionRequest request);
     void deleteTransaction(Long id);
-    SummaryResponse getSummary();
+    SummaryResponse getSummary(LocalDate fromDate, LocalDate toDate);
 }

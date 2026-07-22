@@ -62,7 +62,10 @@ public class TransactionController {
     }
 
     @GetMapping("/summary")
-    public ResponseEntity<SummaryResponse> getSummary() {
-        return ResponseEntity.ok(transactionService.getSummary());
+    public ResponseEntity<SummaryResponse> getSummary(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fromDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate toDate
+    ) {
+        return ResponseEntity.ok(transactionService.getSummary(fromDate, toDate));
     }
 }
