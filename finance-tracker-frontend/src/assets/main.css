@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #09090b;
+  --color-surface-DEFAULT: #131315;
+  --color-surface-card: #18181b;
+  --color-surface-container: #201f22;
+  --color-surface-high: #2a2a2c;
+  --color-surface-highest: #353437;
+  --color-surface-low: #1c1b1d;
+  --color-surface-lowest: #0e0e10;
+
+  --color-primary-DEFAULT: #6366f1;
+  --color-primary-light: #c0c1ff;
+  --color-primary-container: #8083ff;
+
+  --color-income-DEFAULT: #10b981;
+  --color-income-light: #4edea3;
+  --color-income-container: #00a572;
+
+  --color-expense-DEFAULT: #f43f5e;
+  --color-expense-light: #ffb4ab;
+  --color-expense-container: #ff516a;
+
+  --color-on-surface: #e5e1e4;
+  --color-on-variant: #a1a1aa;
+  --color-on-muted: #71717a;
+
+  --color-outline: #27272a;
+  --color-outline-variant: #3f3f46;
+
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+* {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #09090b;
+  color: #e5e1e4;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Custom Stitch Luminal Finance styles */
+.card-surface {
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 0.5rem;
+}
+
+.emerald-text {
+  color: #4edea3;
+}
+
+.rose-text {
+  color: #ffb4ab;
+}
+
+.emerald-bg-tint {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #4edea3;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.rose-bg-tint {
+  background-color: rgba(244, 63, 94, 0.12);
+  color: #ffb4ab;
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.violet-bg-tint {
+  background-color: rgba(99, 102, 241, 0.12);
+  color: #c0c1ff;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
