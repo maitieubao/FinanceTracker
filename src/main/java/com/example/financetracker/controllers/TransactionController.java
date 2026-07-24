@@ -1,4 +1,3 @@
-// src/main/java/com/example/financetracker/controller/TransactionController.java
 package com.example.financetracker.controllers;
 
 import com.example.financetracker.dtos.transaction.TransactionRequest;
